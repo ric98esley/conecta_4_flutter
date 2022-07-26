@@ -20,11 +20,12 @@ class _ColumnBoarState extends State<ColumnBoar> {
     return GestureDetector(
       onTap: () {
         boarControler.addToken(widget.indexColumn, context);
-        bool win = boarControler.checkWin();
-        print(win);
-        if (win)
+        bool win = boarControler.checkWin(column: widget.indexColumn);
+        if (win) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text("Ganador")));
+          boarControler.resetTable();
+        }
         setState(() {});
       },
       child: Column(
