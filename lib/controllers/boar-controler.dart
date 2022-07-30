@@ -15,6 +15,20 @@ class BoarControler with ChangeNotifier {
   ];
   get boarTableGame => _boarTableGame;
   bool start = true;
+  int _scoreRed = 0;
+  int _scoreYellow = 0;
+  set scoreRed(int value) {
+    _scoreRed++;
+    notifyListeners();
+  }
+
+  int get scoreRed => _scoreRed;
+  set scoreYellow(int value) {
+    _scoreYellow++;
+    notifyListeners();
+  }
+
+  int get scoreYellow => _scoreYellow;
 
   bool player = true;
 
@@ -32,12 +46,14 @@ class BoarControler with ChangeNotifier {
     _boarTableGame =
         List.generate(7, (index) => List.generate(6, (index) => 0));
     player = start;
+    notifyListeners();
   }
 
   void resetGame() {
+    _scoreRed = 0;
+    _scoreYellow = 0;
     start = true;
     resetTable();
-    notifyListeners();
   }
 
   void addToken(int column, context) {

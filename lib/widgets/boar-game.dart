@@ -22,6 +22,26 @@ class _BoarGameState extends State<BoarGame> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Column(
+            children: [
+              Text("Marcado"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Text("Amarillo ${boarControler.scoreYellow}"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Rojo ${boarControler.scoreRed}"),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
           Container(
             margin: EdgeInsets.all(10),
             padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
